@@ -2,13 +2,11 @@ from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse, RedirectResponse
 import httpx
 from pathlib import Path
-
-import uvicorn
 import os
 
 app = FastAPI()
 
-IMAGE_DIR = "images"
+IMAGE_DIR = Path("images")
 
 @app.get("/user_status/{user_id}")
 async def get_user_status(user_id: int):
@@ -24,14 +22,12 @@ async def get_user_status(user_id: int):
             raise HTTPException(status_code=404, detail="Discord status not found.")
         
         image_name = f"{discord_status}_status.png"
-        image_path = os.path.join(IMAGE_DIR, image_name)
+        image_path = IMAGE_DIR / image_name
 
-        if not os.path.exists(image_path):
+        if not image_path.exists():
             raise HTTPException(status_code=404, detail="Image not found.")
         
         return FileResponse(image_path, media_type="image/png")
-
-
     else:
         raise HTTPException(status_code=404, detail="User not found.")
 
@@ -39,4 +35,6 @@ async def get_user_status(user_id: int):
 async def home():
     return RedirectResponse(url="https://github.com/phineas/lanyard")
 
-uvicorn.run(app)
+if __name__ == "__app__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
