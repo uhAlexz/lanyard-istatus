@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', path='styles.css') }}">
+        <style>
+            .border-visible {
+                border-color: #2e2e2e;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>iStatus - lanyard api 🏷️</h1>
+            <a>With iStatus, you can utilize Lanyard<br> to display your current <b>Discord Status</b><br> on your GitHub Profile with one request.</a>
+            <br><br>
+            <input id="inputid" class="inputid" placeholder="Enter your Discord ID">
+            <br><br><br>
+            <a id="inputoutput" class="inputoutput"></a>
+            <br><br>
+            <button class="copy_button" id="copy_button" onclick="copy()"></button>
+
+            <script>
+                document.querySelector('.inputid').addEventListener('input', function() {
+
+                    if (this.value == "") {
+                        document.querySelector('.inputoutput').textContent = "";
+                        document.querySelector('.inputoutput').classList.remove('border-visible');
+                        document.querySelector('.copy_button').classList.remove('border-visible');
+                        document.querySelector('.copy_button').textContent = "";
+                    } else {
+                        document.querySelector('.inputoutput').textContent = "https://lanyard-istatus.vercel.app/user_status/"+this.value;
+                        document.querySelector('.inputoutput').classList.add('border-visible');
+                        document.querySelector('.copy_button').classList.add('border-visible');
+                        document.querySelector('.copy_button').textContent = "Copy";
+                    }
+                    
+                });
+
+                function copy() {
+                    var copyText = document.getElementById("inputoutput");
+
+                    copyText.select();
+                    copyText.setSelectionRange(0, 99999);
+                    navigator.clipboard.writeText(copyText.value);
+
+                    alert("Copied the text: " + copyText.value);
+                }
+            </script>
+            <br><br>
+            <footer><b>Created by uhalexz_</b></footer>
+        </div>
+    </body>
+</html>
