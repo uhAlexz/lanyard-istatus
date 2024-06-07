@@ -27,6 +27,9 @@
             <button onclick="copy()" class="copy_button" id="copy_button"></button>
 
             <script>
+                const inputUser = document.querySelector('.inputid');
+                const inputOutput = document.querySelector('.inputoutput');
+
                 document.querySelector('.inputid').addEventListener('input', function() {
 
                     if (this.value == "") {
@@ -41,11 +44,6 @@
                         document.querySelector('.copy_button').textContent = "Copy";
                     }
                     
-                });
-
-                document.addEventListener('DOMContentLoaded', () => {
-                    const inputUser = document.querySelector('.inputid');
-                    const inputOutput = document.querySelector('.inputoutput');
                 });
 
                 document.getElementById('copy_button').addEventListener('click', () => {
