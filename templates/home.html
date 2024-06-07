@@ -42,12 +42,16 @@
                     }
                     
                 });
-                
-                document.getElementById('copyButton').addEventListener('click', () => {
-                    inputUser.select();
-                    inputUser.setSelectionRange(0, 99999);
-                    navigator.clipboard.writeText(inputOutput.textContent);
-                })
+
+                function copy() {
+                    var copyText = document.getElementById("inputoutput");
+
+          copyButton.addEventListener('click', () => { 
+            inputOutput.select();
+            inputOutput.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(inputOutput.textContent); 
+          });
+        });
             </script>
             <br><br>
             <footer><b>Created by uhalexz_</b></footer>
