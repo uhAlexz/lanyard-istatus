@@ -24,7 +24,7 @@
             <br><br><br>
             <a id="inputoutput" class="inputoutput"></a>
             <br><br>
-            <button class="copyButton" id="copyButton" onclick="copy()"></button>
+            <button class="copyButton" id="copyButton"></button>
 
             <script>
                 document.querySelector('.inputid').addEventListener('input', function() {
@@ -42,16 +42,12 @@
                     }
                     
                 });
-
-                function copy() {
-                    var copyText = document.getElementById("inputoutput");
-
-          copyButton.addEventListener('click', () => { 
-            inputOutput.select();
-            inputOutput.setSelectionRange(0, 99999);
-            navigator.clipboard.writeText(inputOutput.textContent); 
-          });
-        });
+                
+                document.getElementById('copyButton').addEventListener('click', () => {
+                    inputUser.select();
+                    inputUser.setSelectionRange(0, 99999);
+                    navigator.clipboard.writeText(inputOutput.textContent);
+                })
             </script>
             <br><br>
             <footer><b>Created by uhalexz_</b></footer>
