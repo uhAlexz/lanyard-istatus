@@ -24,7 +24,7 @@
             <br><br><br>
             <a id="inputoutput" class="inputoutput"></a>
             <br><br>
-            <button class="copy_button" id="copy_button" onclick="copy()"></button>
+            <button class="copy_button" id="copyButton" onclick="copy()"></button>
 
             <script>
                 document.querySelector('.inputid').addEventListener('input', function() {
@@ -46,9 +46,10 @@
                 function copy() {
                     var copyText = document.getElementById("inputoutput");
 
-                    copyText.select();
-                    copyText.setSelectionRange(0, 99999);
-                    navigator.clipboard.writeText(copyText.value);
+ document.getElementById('copyButton').addEventListener('click', () => { 
+    inputUser.select();
+    inputUser.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(inputOutput.textContent); 
 
                     alert("Copied the text: " + copyText.value);
                 }
