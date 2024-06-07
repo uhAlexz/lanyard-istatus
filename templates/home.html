@@ -24,7 +24,7 @@
             <br><br><br>
             <a id="inputoutput" class="inputoutput"></a>
             <br><br>
-            <button onclick="copy()" class="copy_button" id="copy_button"></button>
+            <button class="copy_button" id="copy_button"></button>
 
             <script>
                 const inputUser = document.querySelector('.inputid');
@@ -51,7 +51,7 @@
                     inputUser.setSelectionRange(0, 99999);
                     navigator.clipboard.writeText(inputOutput.textContent);
                     document.getElementById('copy_button').textContent = "Copied!";
-                    setTimeout(() => { document.getElementById('copy_button').textContent = "Copy"; }, 2)
+                    setTimeout(() => { document.getElementById('copy_button').textContent = "Copy"; }, 15)
                 });
             </script>
             <br><br>
