@@ -1,56 +1,55 @@
 <!DOCTYPE html>
-
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>iStatus - Lanyard API</title>
-        <link rel="stylesheet" href="{{ url_for('static', path='styles.css') }}">
-        <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', path='logo.png') }}">
-        <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', path='logo.png') }}">
-        <style>
-            .border-visible {
-                border-color: #2e2e2e;
-            }
-        </style>
-    </head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iStatus - Lanyard API</title>
+    <style>
+      .border-visible {
+        border-color: #2e2e2e;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>iStatus - lanyard api :label:</h1>
+      <a>With iStatus, you can utilize Lanyard<br> to display your current <b>Discord Status</b><br> on your GitHub Profile with one request.</a>
+      <br><br>
+      <input id="inputid" class="inputid" placeholder="Enter your Discord ID">
+      <br><br><br>
+      <a id="inputoutput" class="inputoutput"></a>
+      <br><br>
+      <button class="copy_button" id="copyButton">Copy</button>
 
-    <body>
-        <div class="container">
-            <h1>iStatus - lanyard api 🏷️</h1>
-            <a>With iStatus, you can utilize Lanyard<br> to display your current <b>Discord Status</b><br> on your GitHub Profile with one request.</a>
-            <br><br>
-            <input id="inputid" class="inputid" placeholder="Enter your Discord ID">
-            <br><br><br>
-            <a id="inputoutput" class="inputoutput"></a>
-            <br><br>
-            <button class="copyButton" id="copyButton"></button>
+      <script>
+        const inputId = document.getElementById('inputid');
+        const inputOutput = document.getElementById('inputoutput');
+        const copyButton = document.getElementById('copyButton');
 
-            <script>
-                document.querySelector('.inputid').addEventListener('input', function() {
+        inputId.addEventListener('input', function() {
+          if (this.value == "") {
+            inputOutput.textContent = "";
+            inputOutput.classList.remove('border-visible');
+            copyButton.classList.remove('border-visible');
+            copyButton.textContent = "";
+          } else {
+            inputOutput.textContent = "https://lanyard-istatus.vercel.app/user_status/" + this.value;
+            inputOutput.classList.add('border-visible');
+            copyButton.classList.add('border-visible');
+            copyButton.textContent = "Copy";
+          }
+        });
 
-                    if (this.value == "") {
-                        document.querySelector('.inputoutput').textContent = "";
-                        document.querySelector('.inputoutput').classList.remove('border-visible');
-                        document.querySelector('.copyButton').classList.remove('border-visible');
-                        document.querySelector('.copyButton').textContent = "";
-                    } else {
-                        document.querySelector('.inputoutput').textContent = "https://lanyard-istatus.vercel.app/user_status/"+this.value;
-                        document.querySelector('.inputoutput').classList.add('border-visible');
-                        document.querySelector('.copyButton').classList.add('border-visible');
-                        document.querySelector('.copyButton').textContent = "Copy";
-                    }
-                    
-                });
-                
-                document.getElementById('copyButton').addEventListener('click', () => {
-                    inputUser.select();
-                    inputUser.setSelectionRange(0, 99999);
-                    navigator.clipboard.writeText(inputOutput.textContent);
-                })
-            </script>
-            <br><br>
-            <footer><b>Created by uhalexz_</b></footer>
-        </div>
-    </body>
+        copyButton.addEventListener('click', () => {
+          if (inputOutput.textContent !== "") { // Check if there's something to copy
+            inputOutput.select(); 
+            inputOutput.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(inputOutput.textContent);
+          }
+        });
+      </script>
+      <br><br>
+      <footer><b>Created by uhalexz_</b></footer>
+    </div>
+  </body>
 </html>
