@@ -24,7 +24,7 @@
             <br><br><br>
             <a id="inputoutput" class="inputoutput"></a>
             <br><br>
-            <button onclick="copy()" class="copy_Button" id="copy_Button"></button>
+            <button onclick="copy()" class="copy_button" id="copy_button"></button>
 
             <script>
                 document.querySelector('.inputid').addEventListener('input', function() {
@@ -32,13 +32,13 @@
                     if (this.value == "") {
                         document.querySelector('.inputoutput').textContent = "";
                         document.querySelector('.inputoutput').classList.remove('border-visible');
-                        document.querySelector('.copy_Button').classList.remove('border-visible');
-                        document.querySelector('.copy_Button').textContent = "";
+                        document.querySelector('.copy_button').classList.remove('border-visible');
+                        document.querySelector('.copy_button').textContent = "";
                     } else {
                         document.querySelector('.inputoutput').textContent = "https://lanyard-istatus.vercel.app/user_status/"+this.value;
                         document.querySelector('.inputoutput').classList.add('border-visible');
-                        document.querySelector('.copy_Button').classList.add('border-visible');
-                        document.querySelector('.copy_Button').textContent = "Copy";
+                        document.querySelector('.copy_button').classList.add('border-visible');
+                        document.querySelector('.copy_button').textContent = "Copy";
                     }
                     
                 });
