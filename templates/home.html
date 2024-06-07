@@ -43,12 +43,18 @@
                     
                 });
 
-                function copy() {
-                    var copyText = document.querySelector('.inputoutput');
-                    copyText.select();
-                    copyText.setSelectionRange(0, 99999);
-                    navigator.clipboard.writeText(copyText.textContent);
-                }
+                document.addEventListener('DOMContentLoaded', () => {
+                    const inputUser = document.querySelector('.inputid');
+                    const inputOutput = document.querySelector('.inputoutput');
+                });
+
+                document.getElementById('copy_button').addEventListener('click', () => {
+                    inputUser.select();
+                    inputUser.setSelectionRange(0, 99999);
+                    navigator.clipboard.writeText(inputOutput.textContent);
+                    document.getElementById('copy_button').textContent = "Copied!";
+                    setTimeout(() => { document.getElementById('copy_button').textContent = "Copy"; }, 2)
+                });
             </script>
             <br><br>
             <footer><b>Created by uhalexz_</b></footer>
