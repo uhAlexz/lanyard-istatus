@@ -92,3 +92,30 @@ input {
   .copy_button:active {
     background-color: #393939;
   }
+
+  .options_button {
+    border: 2px solid transparent;
+    width: fit-content;
+    height: fit-content;
+    font-family: 'Inter', sans-serif;
+    color: white;
+    font-weight: 700;
+    padding-right: 1em;
+    padding-left: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: all 0.4s;
+    text-align: center;
+  }
+
+  .options_button:hover {
+    background-color: #434343;
+  }
+
+  .options_button:active {
+    background-color: #393939;
+  }
