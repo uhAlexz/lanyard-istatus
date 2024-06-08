@@ -10,6 +10,15 @@
     }
 }
 
+@keyframes sizeUp {
+  from {
+    size: 1;
+  }
+  to {
+    size: 2;
+  }
+}
+
 body {
     color: rgb(255, 255, 255);
     font-family: "Inter", sans-serif;
@@ -87,6 +96,7 @@ input {
 
   .copy_button:hover {
     background-color: #434343;
+    transform: translateY(-1px);
   }
 
   .copy_button:active {
@@ -114,6 +124,7 @@ input {
 
   .options_button:hover {
     background-color: #434343;
+    transform: translateY(-1px);
   }
 
   .options_button:active {
