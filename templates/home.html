@@ -25,6 +25,7 @@
             <a id="inputoutput" class="inputoutput"></a>
             <br><br>
             <button class="copy_button" id="copy_button"></button>
+            <button class="options_button" id="options_button" onclick="redirect()"></button>
 
             <script>
                 const inputUser = document.querySelector('.inputid');
@@ -37,11 +38,15 @@
                         document.querySelector('.inputoutput').classList.remove('border-visible');
                         document.querySelector('.copy_button').classList.remove('border-visible');
                         document.querySelector('.copy_button').textContent = "";
+                        document.querySelector('.options_button').classList.remove('border-visible');
+                        document.querySelector('.options_button').textContent = "";
                     } else {
                         document.querySelector('.inputoutput').textContent = "https://lanyard-istatus.vercel.app/user_status/"+this.value;
                         document.querySelector('.inputoutput').classList.add('border-visible');
                         document.querySelector('.copy_button').classList.add('border-visible');
                         document.querySelector('.copy_button').textContent = "Copy";
+                        document.querySelector('.options_button').classList.add('border-visible');
+                        document.querySelector('.options_button').textContent = "Options";
                     }
                     
                 });
@@ -51,8 +56,16 @@
                     inputUser.setSelectionRange(0, 99999);
                     navigator.clipboard.writeText(inputOutput.textContent);
                     document.getElementById('copy_button').textContent = "Copied!";
-                    setTimeout(() => { document.getElementById('copy_button').textContent = "Copy"; }, 2000)
+                    setTimeout(() => {
+                        if (document.getElementById('copy_button').classList.contains('border-visible') == false) {
+                            document.getElementById('copy_button').textContent = "Copy";
+                        }
+                    }, 2000);
                 });
+
+                function redirect() {
+                    window.location.href = "https://github.com/uhAlexz/lanyard-istatus?tab=readme-ov-file#options"
+                }
             </script>
             <br><br>
             <footer><b>Created by uhalexz_</b></footer>
